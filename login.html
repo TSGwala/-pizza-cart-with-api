@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Perfect Pizza</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="https://unpkg.com/alpinejs@3.10.3/dist/cdn.min.js"></script>
+</head>
+<body>
+
+    <style>
+        body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    font-family: Arial, sans-serif;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.login {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+.login h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.login form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login label {
+    margin-bottom: 10px;
+    color: #555;
+    text-align: left;
+}
+
+.login input {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.login button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff6f61;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login button:hover {
+    background-color: #ff4c3b;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+}
+
+    </style>
+    <div class="login-container">
+        <div class="login" x-data="loginPage">
+            <h1>Login to Perfect Pizza</h1>
+            <form @submit.prevent="login">
+                <label for="username">Username:</label>
+                <input type="text" id="username" x-model="username" required>
+                <button type="submit">Login</button>
+                <p x-text="message" class="error-message"></p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('loginPage', () => ({
+                username: '',
+                message: '',
+                login() {
+                    if (this.username) {
+                        localStorage.setItem('username', this.username);
+                        window.location.href = 'index.html';
+                    } else {
+                        this.message = 'Username is required';
+                    }
+                }
+            }));
+        });
+    </script>
+</body>
+</html>
+

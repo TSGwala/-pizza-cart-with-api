@@ -1,0 +1,161 @@
+.header {
+    border-bottom: 1px solid whitesmoke;
+    border-left: 1px solid whitesmoke;
+    border-right: 1px solid whitesmoke;
+}
+.login{
+    background-color: chartreuse;
+}
+
+.headerTitle {
+    padding: 10px 10px;
+}
+
+.incrementBtn,
+.decrementBtn {
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.pizza {
+    padding: 25px;
+    border: 0px solid #fff;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1.1);
+    max-width: 615px;
+    margin: 0 auto;
+    font-size: 16px;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+    transition: 0.3s ease-in-out;
+}
+
+.pizza:hover{
+    transform: scale(1.2); 
+}
+
+.card-image {
+    background-image: url('images/pizza-images/kitchen-background.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 10px;
+}
+
+.pizza-image {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.pizza-image img {
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.card-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.4);
+    z-index: 1;
+}
+
+.card-image img,
+.card-image a {
+    position: relative;
+    z-index: 2;
+}
+
+.pizza_item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    transition: transform 0.3s ease-in-out;
+}
+
+.pizza_item:hover {
+    transform: scale(1.03);
+}
+
+.favorite-clicked,
+.favorite-clicked-medium,
+.favorite-clicked-large {
+    animation: pulse 0.3s ease-in-out;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+}
+.container {
+    /* max-width: 1200px; */
+    margin: auto;
+    padding: 20px;
+}
+.piz {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 30px 0;
+}
+.piz div {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.piz div:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.piz img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+.piz h2 {
+    color: #e74c3c;
+}
+.piz p {
+    color: #666;
+}
+.add-to-cart {
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+.add-to-cart:hover {
+    background-color: #c0392b;
+}
+@media (min-width: 600px) {
+    .piz div {
+        width: 45%;
+    }
+}
+@media (min-width: 900px) {
+    .piz div {
+        width: 30%;
+    }
+}
